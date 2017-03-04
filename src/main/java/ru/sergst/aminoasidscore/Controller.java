@@ -182,7 +182,7 @@ public class Controller {
     private String exportResultToXLSX(List<ResultRow> result, double[] c, double [] b) {
         Workbook book = new XSSFWorkbook();
         CellStyle doubleCellStyle = book.createCellStyle();
-        doubleCellStyle.setDataFormat(book.createDataFormat().getFormat("#.##"));
+        doubleCellStyle.setDataFormat(book.createDataFormat().getFormat("#.#"));
 
         Sheet sheetResult = book.createSheet("Result");
         Row rowName = sheetResult.createRow(0);
@@ -202,9 +202,9 @@ public class Controller {
             Cell w2Cell = row.createCell(1);
             Cell bcCell = row.createCell(2);
 
-            w1Cell.setCellValue(String.valueOf(resultRow.w1));
-            w2Cell.setCellValue(String.valueOf(resultRow.w2));
-            bcCell.setCellValue(String.valueOf(resultRow.BC));
+            w1Cell.setCellValue(resultRow.w1);
+            w2Cell.setCellValue(resultRow.w2);
+            bcCell.setCellValue(resultRow.BC);
 
             bcCell.setCellStyle(doubleCellStyle);
         }
